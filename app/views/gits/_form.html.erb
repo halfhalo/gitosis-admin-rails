@@ -1,0 +1,37 @@
+<%= form_for(@git) do |f| %>
+  <% if @git.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@git.errors.count, "error") %> prohibited this git from being saved:</h2>
+
+      <ul>
+      <% @git.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :repository_url %><br />
+    <%= f.text_field :repository_url %>
+  </div>
+  <div class="field">
+    <%= f.label :clone_url %><br />
+    <%= f.text_field :clone_url %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :public_key %><br />
+    <%= f.text_area :public_key %>
+  </div>
+  <div class="field">
+    <%= f.label :private_key %><br />
+    <%= f.text_area :private_key %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

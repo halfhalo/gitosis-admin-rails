@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Repository url:</b>
+  <%= @git.repository_url %>
+</p>
+
+<p>
+  <b>Clone url:</b>
+  <%= @git.clone_url %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @git.name %>
+</p>
+
+<p>
+  <b>Public key:</b>
+  <%= @git.public_key %>
+</p>
+
+<p>
+  <b>Private key:</b>
+  <%= @git.private_key %>
+</p>
+
+
+<%= link_to 'Edit', edit_git_path(@git) %> |
+<%= link_to 'Back', gits_path %>

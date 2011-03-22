@@ -1,0 +1,29 @@
+<h1>Listing key_pairs</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Type</th>
+    <th>Public key</th>
+    <th>Private key</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @key_pairs.each do |key_pair| %>
+  <tr>
+    <td><%= key_pair.user_id %></td>
+    <td><%= key_pair.type %></td>
+    <td><%= key_pair.public_key %></td>
+    <td><%= key_pair.private_key %></td>
+    <td><%= link_to 'Show', key_pair %></td>
+    <td><%= link_to 'Edit', edit_key_pair_path(key_pair) %></td>
+    <td><%= link_to 'Destroy', key_pair, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Key pair', new_key_pair_path %>

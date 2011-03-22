@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  git_id: 1
+  name: MyString
+  description: MyString
+  owner: 1
+  visibility_level: 1
+  gitweb: false
+
+two:
+  git_id: 1
+  name: MyString
+  description: MyString
+  owner: 1
+  visibility_level: 1
+  gitweb: false

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Git:</b>
+  <%= @repository.git_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @repository.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @repository.description %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= @repository.owner %>
+</p>
+
+<p>
+  <b>Visibility level:</b>
+  <%= @repository.visibility_level %>
+</p>
+
+<p>
+  <b>Gitweb:</b>
+  <%= @repository.gitweb %>
+</p>
+
+
+<%= link_to 'Edit', edit_repository_path(@repository) %> |
+<%= link_to 'Back', repositories_path %>
