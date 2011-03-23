@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @key_pair.user_id %>
+</p>
+
+<p>
+  <b>Key type:</b>
+  <%= @key_pair.key_type %>
+</p>
+
+<p>
+  <b>Public key:</b>
+  <%= @key_pair.public_key %>
+</p>
+
+<p>
+  <b>Private key:</b>
+  <%= @key_pair.private_key %>
+</p>
+
+
+<%= link_to 'Edit', edit_key_pair_path(@key_pair) %> |
+<%= link_to 'Back', key_pairs_path %>

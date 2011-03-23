@@ -1,3 +1,29 @@
+Gitosis Web Management
+User
+	username
+	realname
+#	email
+#	password
+Repository
+	name
+	description
+	visibility
+	gitweb
+	owner
+Group
+	name
+	description
+KeyPair
+	user_id
+	type
+	public
+	private
+
+Repositories can either have a user attached to them singly or have a group attached to them.  Admin users for the repo are placed gathered using cancan.  Repo admins can add users or groups to the repositories access list, and also add another user to the repo admin list.  Group Admins can add and remove users from the group, and also add or remove users from the group admin list.  Full Administrators have admin access to all the repositories and also have access to the gitosis-admin repository.
+
+Future Versions will include:
+	Showing of a README file in the gitosis admin page
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create

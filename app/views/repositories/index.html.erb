@@ -1,0 +1,20 @@
+<h1>Listing repositories</h1>
+
+<table>
+
+
+<% @repositories.each do |repository| %>
+
+	<div class="repository-list">
+		<div class="repository-list-owner"><%= repository.owner %>/ </div>
+		<div class="repository-list-name">  <%= repository.name %></div>
+		<div class="repository-list-info">Users: 100 | Groups: 100 Visibility: Members | Daemon: <%= repository.daemon %> | Gitweb: <%= repository.gitweb %></div>
+		<div class="repository-list-description"><%= repository.description %></div>
+		<div class="repository-list-links"><%= link_to 'Show', repository %> | <%= link_to 'Edit', edit_repository_path(repository) %> | <%= link_to 'Destroy', repository, :confirm => 'Are you sure?', :method => :delete %></div>
+	</div>
+	<hr>
+<% end %>
+
+<br />
+
+<%= link_to 'New Repository', new_repository_path %>
