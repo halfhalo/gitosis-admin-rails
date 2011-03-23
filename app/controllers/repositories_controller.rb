@@ -48,7 +48,7 @@ class RepositoriesController < ApplicationController
 
     respond_to do |format|
       if @repository.save
-        format.html { redirect_to(@repository, :notice => 'Repository was successfully created.') }
+        format.html { redirect_to(git_repositories_path :notice => 'Repository was successfully created.') }
         format.xml  { render :xml => @repository, :status => :created, :location => @repository }
       else
         format.html { render :action => "new" }

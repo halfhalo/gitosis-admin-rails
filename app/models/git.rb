@@ -32,7 +32,7 @@ class Git < ActiveRecord::Base
 			@output+=u.key_name+" "
 		end
 		@output+=""+@repo
-		return @output
+			return @output || ""
 	end
 	def build_group_lists
 		@output=""
@@ -62,7 +62,11 @@ class Git < ActiveRecord::Base
 			else
 			end
 		end
+		if(@user.length>2)
 		return @output || ""
+	else
+		return ""
+	end
 	end
 	def build_gitosis_repo
 		@output=""
@@ -76,7 +80,7 @@ class Git < ActiveRecord::Base
 				@repo+="\nowner = Gitosis"
 			end
 			@repo+="\ndaemon = "
-			if(repo.visibility_level>2)
+			if(repo.visibility_level && repo.visibility_level>2)
 				@repo+="yes"
 			else
 				@repo+="no"

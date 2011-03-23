@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 		@git=Git.find(params[:git_id])
 	end
   def index
-    @users = User.all
+    @users = @git.users.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
-    @user = User.find(params[:id])
+    @user = @git.users.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.xml
   def new
-    @user = User.new
+    @user = @git.users.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,13 +38,13 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    @user = @git.users.find(params[:id])
   end
 
   # POST /users
   # POST /users.xml
   def create
-    @user = User.new(params[:user])
+    @user = @git.users.new(params[:user])
 
     respond_to do |format|
       if @user.save
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.xml
   def update
-    @user = User.find(params[:id])
+    @user = @git.users.find(params[:id])
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
@@ -76,7 +76,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.xml
   def destroy
-    @user = User.find(params[:id])
+    @user = @git.users.find(params[:id])
     @user.destroy
 
     respond_to do |format|

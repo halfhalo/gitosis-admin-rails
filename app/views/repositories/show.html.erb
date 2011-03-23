@@ -1,35 +1,26 @@
 <p id="notice"><%= notice %></p>
+<h2><%= @git.name %> / <%= @repository.name %></h2>
 
-<p>
-  <b>Git:</b>
-  <%= @repository.git_id %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @repository.name %>
-</p>
 
 <p>
   <b>Description:</b>
   <%= @repository.description %>
 </p>
-
-<p>
-  <b>Owner:</b>
-  <%= @repository.owner %>
-</p>
-
-<p>
-  <b>Visibility level:</b>
-  <%= @repository.visibility_level %>
-</p>
-
-<p>
-  <b>Gitweb:</b>
-  <%= @repository.gitweb %>
-</p>
-
-
-<%= link_to 'Edit', edit_repository_path(@repository) %> |
-<%= link_to 'Back', repositories_path %>
+<hr>
+<h3>Users:</h3>
+	<% @repository.users.each do |u| %>
+	<div class="list-entry">
+		<div class="list-entry-title"><%= u.user_name %></div>
+		<div class="list-entry-comment"></div>
+		<div class="list-entry-links"></div>
+	</div>
+	
+	<%end%>
+	<hr>
+<h3>Groups:</h3>
+<% @repository.groups.each do |g| %>
+	<%= g.name %>
+<%end%>
+<hr>
+<%= link_to 'Edit', edit_git_repository_path(@repository.git_id,@repository) %> |
+<%= link_to 'Back', git_repositories_path %>

@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for([@git,@user]) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :git_id %><br />
-    <%= f.text_field :git_id %>
-  </div>
+
   <div class="field">
     <%= f.label :user_name %><br />
     <%= f.text_field :user_name %>
