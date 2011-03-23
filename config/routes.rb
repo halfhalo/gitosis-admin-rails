@@ -1,24 +1,4 @@
 GitosisAdministration::Application.routes.draw do
-  resources :gits do
-	  resources :repositories do
-			get "adduser"
-			get "addgroup"
-		end
-
-	  resources :users do
-			resources :key_pairs
-			post "addgroup"
-			post "addrepo"
-		end
-
-	  resources :groups do
-			post "addrepo"
-			post "adduser"
-		end
-	  
-	end
-
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
