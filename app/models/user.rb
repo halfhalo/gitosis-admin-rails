@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
 	def key_name
 		return user_name
 	end
+	def display_name
+		return user_name
+	end
 end

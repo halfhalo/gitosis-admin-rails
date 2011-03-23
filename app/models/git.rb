@@ -16,9 +16,13 @@ class Git < ActiveRecord::Base
 		@output=""
 		@output+="\n\n[group gitosis-admin]\nwriteable = gitosis-admin "
 		@repo=""
+		@repo_admin=""
 		repositories.each do |repo|
 			@output+=repo.short_name+" "
 			@repo+="\n\n[group "+repo.short_name+"_gitosis_ag]"
+			@repo_admin+="\n\n[group "+repo.short_name+"_gitosis_ag_admin]"
+			@repo_admin="\nwritable = "+repo.short_name
+		#	@repo.admin_
 			@repo+="\nwritable = "+repo.short_name
 			if(repo.users.count>0)
 				@repo+="\nmembers = "

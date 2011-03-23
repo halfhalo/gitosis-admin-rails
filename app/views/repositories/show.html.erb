@@ -15,6 +15,12 @@ Implemented
 
 	Clone URL: I am a git clone url with many git related functions
 <hr>
+<h3>Repo Administrators:</h3>
+<hr>
+
+
+
+
 <h3>Users:</h3>
 	<% @repository.users.each do |u| %>
 	<div class="list-entry">
@@ -22,13 +28,12 @@ Implemented
 		<div class="list-entry-comment"></div>
 		<div class="list-entry-links"></div>
 	</div>
-	
+	<%end%>
+	<%= form_tag(repository_adduser_path(@repository.git_id,@repository), :method => "get") do %>
+	<%= select("user", "id", @git.users.collect {|p| [ p.display_name, p.id ] }, {:include_blank => true}) %>
+	<%= submit_tag("Add") %>
 	<%end%>
 	<hr>
-<h3>Groups:</h3>
-<% @repository.groups.each do |g| %>
-	<%= g.name %>
-<%end%>
-<hr>
+
 <%= link_to 'Edit', edit_git_repository_path(@repository.git_id,@repository) %> |
 <%= link_to 'Back', git_repositories_path %>

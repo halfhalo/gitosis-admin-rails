@@ -24,6 +24,23 @@ class RepositoriesController < ApplicationController
       format.xml  { render :xml => @repository }
     end
   end
+  def adduser
+    @repository = @git.repositories.find(params[:repository_id])
+		@u=User.find(params[:user][:id])
+		
+ 		respond_to do |format|
+			if(@repository.push_user(@u))
+				
+				
+				format.html { redirect_to(git_repository_path(@repository.git_id,@repository), :notice => 'Added User To Repository') }
+			else
+				format.html { redirect_to(git_repository_path(@repository.git_id,@repository), :notice => 'Error Adding User To Repository') }
+			end
+   
+#      format.html # show.html.erb
+  #    format.xml  { render :xml => @repository }
+    end
+  end
 
   # GET /repositories/new
   # GET /repositories/new.xml
